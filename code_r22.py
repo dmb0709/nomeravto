@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
-''' Программа выводит название региона РФ по коду с номера автомобиля
-вводим значение и получаем результат. 
+''' Программа выводит номера автомобилей из списков доступа. Зелёных пускаем, красных нет!
+Списки хранятся в файлах short.db - белый и stoplist.db - чёрный списки.
+Формат записи 000:х000хх н000нн
 '''
 # Используем колораму для подсветки
 from colorama import Fore, Back, Style
@@ -41,22 +42,17 @@ for line in f1:
     bad[key] = value
 
 def vvod():
-    # Здесь мы работаем с юзером
-    
-    print(Style.RESET_ALL + Fore.CYAN + "Введите номер автомобиля! 0 - для выхода")
+    # Здесь мы работаем с юзером    
+    print(Style.RESET_ALL + Style.BRIGHT + Fore.CYAN + "Введите номер автомобиля! 0 - для выхода")
     code = input()
     if code == '0':
         sys.exit(0)
 
-                
     os.system('clear')
-    print(Fore.GREEN + d.get(code, 'Нет таких') + '\n' + Fore.RED + bad.get(code, 'Нет таких'))
-            
+    print(Style.BRIGHT + Fore.GREEN + d.get(code, 'Нет таких') + '\n' + Fore.RED + bad.get(code, 'Нет таких'))
     vvod()
 
 signal.signal(signal.SIGINT, signal_handler)
 f.close()
 vvod()
 signal.pause()
-
-main()
