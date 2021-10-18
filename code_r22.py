@@ -47,21 +47,11 @@ def vvod():
     code = input()
     if code == '0':
         sys.exit(0)
-    exist_key = code in d
-    exist_key_black = code in bad
-    if exist_key == False and exist_key_black == False:
-        print(Fore.RED + Style.BRIGHT + 'Такого кода в базе нет!')
-        vvod()
+
                 
     os.system('clear')
-    #print(Fore.GREEN + d[code] + Style.RESET_ALL)
-    if d[code] == None :
-        print('Error_blat')
-    elif bad[code] == None:
-        print('Error_blat_2')
-        
-    #print(d[code] || bad[code])
-    print(Style.RESET_ALL)
+    print(Fore.GREEN + d.get(code, 'Нет таких') + '\n' + Fore.RED + bad.get(code, 'Нет таких'))
+            
     vvod()
 
 signal.signal(signal.SIGINT, signal_handler)
