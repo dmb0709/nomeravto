@@ -49,7 +49,7 @@ def vvod():
         sys.exit(0)
 
     os.system('clear')
-    print(Style.BRIGHT + Fore.GREEN + str(d.get(code, 'Нет таких')) + '\n' + Fore.RED + str(bad.get(code, 'Нет таких')))
+    print(Style.BRIGHT + Fore.GREEN + d.get(code, 'Нет таких') + '\n' + Fore.RED + bad.get(code, 'Нет таких'))
     vvod()
 
 signal.signal(signal.SIGINT, signal_handler)
