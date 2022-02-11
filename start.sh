@@ -1,5 +1,5 @@
 #!/bin/bash
 
 git pull
-./111.py
+~/nomeravto/111.py
 
