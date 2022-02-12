@@ -61,6 +61,7 @@ def vvod():
     text_to_user = "Введите номер автомобиля! 0 - для выхода"
     print(Style.RESET_ALL + Style.BRIGHT + Fore.CYAN + text_to_user)
     code = input()
+    code = code.strip()
     if code == '0':
         sys.exit(0)
 
